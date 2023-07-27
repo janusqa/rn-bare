@@ -1,0 +1,24 @@
+{
+	"react-native.packager.port": 19000,
+	"editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.rulers": [80],
+	"eslint.probe": [
+		"javascript",
+		"javascriptreact",
+		"json",
+		"jsonc",
+		"markdown",
+		"typescript",
+		"typescriptreact",
+		"yaml"
+	],
+	"eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"oracledevtools.intellisense.suggestions.keywordCasing": "Lowercase",
+	"editor.fontFamily": "'JetBrains Mono', 'Droid Sans Mono', monospace",
+	"terminal.integrated.fontFamily": "'JetBrains Mono'",
+	// "terminal.integrated.gpuAcceleration": "off",
+	"terminal.integrated.gpuAcceleration": "off"
+}
