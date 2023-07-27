@@ -30,7 +30,9 @@ const RootLayout = () => {
 			// Initilize user
 			// if (!accessToken || !accessXsrf) return;
 			await Promise.resolve();
-			setUser("me@home.com");
+
+			// UNCOMMENT BELOW TO "lOGIN"
+			// setUser("me@home.com");
 		};
 
 		// if (!!accessToken) return;
