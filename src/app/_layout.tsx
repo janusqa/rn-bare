@@ -27,15 +27,11 @@ const RootLayout = () => {
 
 	useEffect(function () {
 		const initilizeSession = async () => {
-			// Initilize user
-			// if (!accessToken || !accessXsrf) return;
 			await Promise.resolve();
 
 			// UNCOMMENT BELOW TO "lOGIN"
 			// setUser("me@home.com");
 		};
-
-		// if (!!accessToken) return;
 
 		void initilizeSession()
 			.catch((error) => {
