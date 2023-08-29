@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { Text, View, StyleSheet } from "react-native";
 
 const Tab2Screen1 = () => {
-	useEffect(() =>
-		console.log("accessing protected screen tab 2 / screen 1...")
+	useEffect(
+		() => console.log("accessing protected screen tab 2 / screen 1..."),
+		[]
 	);
 	return (
 		<View style={[styles.container]}>

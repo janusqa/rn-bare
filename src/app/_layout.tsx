@@ -5,9 +5,8 @@ import { Slot } from "expo-router";
 
 import AppTheme from "@/navigation/theme";
 import Screen from "../components/Screen";
-import useProtectedRoute from "../hooks/useProtectedRoute";
 
-void preventAutoHideAsync()
+preventAutoHideAsync()
 	.then((result) =>
 		console.log(
 			`SplashScreen.preventAutoHideAsync() succeeded: ${String(result)}`
@@ -16,31 +15,35 @@ void preventAutoHideAsync()
 	.catch((error) => console.log(error));
 
 const RootLayout = () => {
-	const [appIsReady, setIsappIsReady] = useState<boolean>(false);
-	const [user, setUser] = useState<string | undefined>();
+	const [appIsReady, setAppIsReady] = useState<boolean>(false);
 
-	const onLayoutRootView = useCallback(async () => {
-		if (appIsReady) await hideAsync();
+	const onLayoutRootView = useCallback(() => {
+		if (appIsReady)
+			hideAsync()
+				.then((result) =>
+					console.log(`SplashScreen.hideAsync() succeeded: ${String(result)}`)
+				)
+				.catch((error) => console.log(error));
 	}, [appIsReady]);
 
-	useProtectedRoute(user);
+	useEffect(
+		function () {
+			async function iniitilize() {
+				try {
+					await new Promise<null>((resolve) => {
+						setTimeout(() => resolve(null), 2000);
+					});
+				} catch (error) {
+					console.warn(error);
+				} finally {
+					if (!appIsReady) setAppIsReady(true);
+				}
+			}
 
-	useEffect(function () {
-		const initilizeSession = async () => {
-			await Promise.resolve();
-
-			// UNCOMMENT BELOW TO "lOGIN"
-			// setUser("me@home.com");
-		};
-
-		void initilizeSession()
-			.catch((error) => {
-				console.log(error);
-			})
-			.finally(() => {
-				setIsappIsReady(true);
-			});
-	}, []);
+			void iniitilize();
+		},
+		[appIsReady]
+	);
 
 	if (!appIsReady) return null;
 

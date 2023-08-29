@@ -1,26 +1,25 @@
 import { useEffect } from "react";
-import { useSegments, router } from "expo-router";
+import { useSegments, router, useRootNavigationState } from "expo-router";
+import { useUser } from "@/store/authStore";
 
-import useNavigationReady from "./useNavigationReady";
-
-const useProtectedRoute = (user: string | undefined) => {
+const useProtectedRoute = () => {
+	const user = useUser();
 	const segments = useSegments();
-
-	const isNavigationReady = useNavigationReady();
+	const navigationState = useRootNavigationState();
 
 	useEffect(
 		function () {
-			const isAuthGroup = segments[0] === "(auth)";
-			if (isNavigationReady) {
-				if (!user && !isAuthGroup) {
-					router.replace("/(auth)");
-				} else if (user && isAuthGroup) {
-					router.replace("/(app)/(tab2)");
-				}
-			}
+			if (!!!navigationState.key) return;
+
+			const inAuthGroup = segments[0] === "authnav";
+			const isLoggedIn = user ? true : false;
+			if (!isLoggedIn && !inAuthGroup) router.replace("/authnav");
+			else if (isLoggedIn && inAuthGroup) router.replace("/appnav/tab1");
 		},
-		[segments, user, isNavigationReady]
+		[segments, user, navigationState.key]
 	);
+
+	return !!navigationState.key;
 };
 
 export default useProtectedRoute;
