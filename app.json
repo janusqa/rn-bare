@@ -31,7 +31,8 @@
         "foregroundImage": "./src/assets/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "useNextNotificationsApi": true
+      "useNextNotificationsApi": true,
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
@@ -39,6 +40,10 @@
     "plugins": [
       "expo-router"
     ],
+    "extra": {
+      "eas": "8480677f-60db-4aad-8a39-ba19fe572e1c",
+      "releaseChannel": "production"
+    },
     "experiments": {
       "tsconfigPaths": true,
       "typedRoutes": true
