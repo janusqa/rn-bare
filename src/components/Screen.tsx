@@ -7,20 +7,20 @@ import {
 } from "react-native";
 
 import COLORS from "../constants/colors";
-import useProtectedRoute from "@/hooks/useProtectedRoute";
+// import useProtectedRoute from "@/hooks/useProtectedRoute";
 
 interface Props {
 	children: React.ReactNode;
 	style?: ViewStyle;
-	onLayoutRootView: () => void;
+	onLayoutRootView?: () => void;
 }
 
-const Screen = ({ children, onLayoutRootView }: Props) => {
-	useProtectedRoute();
+// const Screen = ({ children, onLayoutRootView }: Props) => {
+const Screen = ({ children }: Props) => {
+	// useProtectedRoute();
 	return (
-		<SafeAreaView onLayout={onLayoutRootView} style={[styles.container]}>
-			{children}
-		</SafeAreaView>
+		// <SafeAreaView onLayout={onLayoutRootView} style={[styles.container]}>
+		<SafeAreaView style={[styles.container]}>{children}</SafeAreaView>
 	);
 };
 
