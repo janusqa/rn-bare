@@ -1,11 +1,8 @@
 import { Link } from "expo-router";
 import { useEffect } from "react";
-import { Text, View, StyleSheet, Pressable } from "react-native";
-import { useAuthActions } from "@/store/authStore";
+import { Text, View, StyleSheet } from "react-native";
 
 const Tab1Screen1 = () => {
-	const { logout } = useAuthActions();
-
 	useEffect(
 		() => console.log("accessing protected screen tab 1 / screen 1..."),
 		[]
@@ -20,9 +17,6 @@ const Tab1Screen1 = () => {
 			<Link style={styles.link} href="/appnav/tab1/tab1screen2">
 				Go to Tab 1 / Screen 2
 			</Link>
-			{/* <Pressable onPress={() => logout()}>
-				<Text style={styles.link}>Sign out</Text>
-			</Pressable> */}
 		</View>
 	);
 };
