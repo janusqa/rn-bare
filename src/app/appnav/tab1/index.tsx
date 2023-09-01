@@ -1,6 +1,6 @@
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { useEffect } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Pressable } from "react-native";
 
 const Tab1Screen1 = () => {
 	useEffect(
@@ -11,9 +11,9 @@ const Tab1Screen1 = () => {
 	return (
 		<View style={[styles.container]}>
 			<Text>Tab 1 / Screen 1</Text>
-			<Link style={styles.link} href="/appnav/tab2/">
-				Go to Tab 2 / Screen 1
-			</Link>
+			<Pressable onPress={() => router.replace({ pathname: "/appnav/tab2/" })}>
+				<Text style={styles.link}>Go to Tab 2 / Screen 1</Text>
+			</Pressable>
 			<Link style={styles.link} href="/appnav/tab1/tab1screen2">
 				Go to Tab 1 / Screen 2
 			</Link>
