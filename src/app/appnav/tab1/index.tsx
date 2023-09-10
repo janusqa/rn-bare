@@ -1,4 +1,4 @@
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
 import { useEffect } from "react";
 import { Text, View, StyleSheet, Pressable } from "react-native";
 
@@ -15,7 +15,7 @@ const Tab1Screen1 = () => {
 				<Text style={styles.link}>Go to Tab 2 / Screen 1</Text>
 			</Pressable>
 			<Pressable
-				onPress={() => router.replace({ pathname: "/appnav/tab1/tab1screen2" })}
+				onPress={() => router.push({ pathname: "/appnav/tab1/tab1screen2" })}
 			>
 				<Text style={styles.link}>Go to Tab 1 / Screen 2</Text>
 			</Pressable>
