@@ -20,7 +20,7 @@ const Tab1Screen1 = () => {
 				<Text style={styles.link}>Go to Tab 2 / Screen 1</Text>
 			</Pressable>
 			<Pressable
-				onPress={() => router.push({ pathname: "/appnav/tab2/tab2screen2" })}
+				onPress={() => router.replace({ pathname: "/appnav/tab2/tab2screen2" })}
 			>
 				<Text style={styles.link}>Go to Tab 2 / Screen 2</Text>
 			</Pressable>
