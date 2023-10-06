@@ -1,38 +1,40 @@
 {
-    "cli": {
-        "version": ">= 5.1.0"
+  "cli": {
+    "version": ">= 5.4.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "resourceClass": "m-medium"
+      },
+      "env": {
+        "EXPO_PUBLIC_EAS_PROJECT_ID": "55f7a643-b5c2-4c7f-a596-26c577cc38f5",
+        "EXPO_PUBLIC_API_BASE_URL": "http://myapi.com/api/v1"
+      }
     },
-    "build": {
-        "development": {
-            "developmentClient": true,
-            "distribution": "internal",
-            "ios": {
-                "resourceClass": "m-medium"
-            },
-            "env": {
-                "EXPO_PUBLIC_API_BASE_URL": "http://myapi.com/api/v1"
-            }
-        },
-        "preview": {
-            "distribution": "internal",
-            "android": {
-                "buildType": "apk"
-            },
-            "ios": {
-                "simulator": true,
-                "resourceClass": "m-medium"
-            },
-            "env": {
-                "EXPO_PUBLIC_API_BASE_URL": "http://myapi.com/api/v1"
-            }
-        },
-        "production": {
-            "ios": {
-                "resourceClass": "m-medium"
-            }
-        }
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true,
+        "resourceClass": "m-medium"
+      },
+      "env": {
+        "EXPO_PUBLIC_EAS_PROJECT_ID": "55f7a643-b5c2-4c7f-a596-26c577cc38f5",
+        "EXPO_PUBLIC_API_BASE_URL": "http://myapi.com/api/v1"
+      }
     },
-    "submit": {
-        "production": {}
+    "production": {
+      "ios": {
+        "resourceClass": "m-medium"
+      }
     }
+  },
+  "submit": {
+    "production": {}
+  }
 }
