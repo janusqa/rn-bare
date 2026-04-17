@@ -1,59 +1,31 @@
-import { StatusBar } from "expo-status-bar";
-import { useCallback, useEffect, useState } from "react";
-import { preventAutoHideAsync, hideAsync } from "expo-splash-screen";
-import { Slot } from "expo-router";
+import { StatusBar } from 'expo-status-bar';
+import { Slot } from 'expo-router';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import AppTheme from "@/navigation/theme";
-import Screen from "../components/Screen";
-import useProtectedRoute from "../hooks/useProtectedRoute";
-
-void preventAutoHideAsync()
-	.then((result) =>
-		console.log(
-			`SplashScreen.preventAutoHideAsync() succeeded: ${String(result)}`
-		)
-	)
-	.catch((error) => console.log(error));
+import Screen from '../components/Screen';
 
 const RootLayout = () => {
-	const [appIsReady, setIsappIsReady] = useState<boolean>(false);
-	const [user, setUser] = useState<string | undefined>();
-
-	const onLayoutRootView = useCallback(async () => {
-		if (appIsReady) await hideAsync();
-	}, [appIsReady]);
-
-	useProtectedRoute(user);
-
-	useEffect(function () {
-		const initilizeSession = async () => {
-			await Promise.resolve();
-
-			// UNCOMMENT BELOW TO "lOGIN"
-			// setUser("me@home.com");
-		};
-
-		void initilizeSession()
-			.catch((error) => {
-				console.log(error);
-			})
-			.finally(() => {
-				setIsappIsReady(true);
-			});
-	}, []);
-
-	if (!appIsReady) return null;
-
-	return (
-		<>
-			<StatusBar style="auto" backgroundColor="transparent" />
-			<Screen onLayoutRootView={onLayoutRootView}>
-				<AppTheme.ThemeProvider value={AppTheme.theme}>
-					<Slot />
-				</AppTheme.ThemeProvider>
-			</Screen>
-		</>
-	);
+   return (
+      <GestureHandlerRootView style={styles.container}>
+         <SafeAreaProvider>
+            <KeyboardProvider>
+               <StatusBar style="auto" />
+               <Screen>
+                  <Slot />
+               </Screen>
+            </KeyboardProvider>
+         </SafeAreaProvider>
+      </GestureHandlerRootView>
+   );
 };
 
 export default RootLayout;
+
+const styles = StyleSheet.create({
+   container: {
+      flex: 1,
+   },
+});

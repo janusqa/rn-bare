@@ -1,33 +1,37 @@
-import {
-	Platform,
-	StatusBar as StatusBarRN,
-	StyleSheet,
-	SafeAreaView,
-	type ViewStyle,
-} from "react-native";
-
-import COLORS from "../constants/colors";
+import { StyleSheet, View, type ViewStyle } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface Props {
-	children: React.ReactNode;
-	style?: ViewStyle;
-	onLayoutRootView: () => Promise<void>;
+   children: React.ReactNode;
+   style?: ViewStyle;
+   onLayoutRootView?: () => void;
 }
 
-const Screen = ({ children, onLayoutRootView }: Props) => {
-	return (
-		<SafeAreaView onLayout={onLayoutRootView} style={[styles.container]}>
-			{children}
-		</SafeAreaView>
-	);
+const Screen = ({ children }: Props) => {
+   const insets = useSafeAreaInsets();
+
+   return (
+      <View
+         style={[
+            styles.container,
+            {
+               paddingTop: insets.top,
+               paddingLeft: insets.left,
+               paddingRight: insets.right,
+               paddingBottom: insets.bottom,
+            },
+         ]}
+      >
+         {children}
+      </View>
+   );
 };
 
 export default Screen;
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		marginTop: Platform.OS === "android" ? StatusBarRN.currentHeight : 0,
-		backgroundColor: COLORS.white,
-	},
+   container: {
+      flex: 1,
+      backgroundColor: 'red',
+   },
 });

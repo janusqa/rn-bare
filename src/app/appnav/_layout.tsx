@@ -11,21 +11,21 @@ const AppLayout = () => {
 			}}
 		>
 			<Tabs.Screen
-				name="(tab1)"
+				name="tab1"
 				options={{
-					href: "/(app)/(tab1)",
+					href: "/appnav/tab1",
 					tabBarIcon: ({ color, size }) => (
-						<MaterialCommunityIcons name="account" size={size} color={color} />
+						<MaterialCommunityIcons name="tab-plus" size={size} color={color} />
 					),
 				}}
 			/>
 			<Tabs.Screen
-				name="(tab2)"
+				name="tab2"
 				options={{
-					href: "/(app)/(tab2)",
+					href: "/appnav/tab2",
 					tabBarIcon: ({ color, size }) => (
 						<MaterialCommunityIcons
-							name="map-marker-radius"
+							name="tab-minus"
 							size={size}
 							color={color}
 						/>
