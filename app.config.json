@@ -27,7 +27,8 @@
 			"adaptiveIcon": {
 				"foregroundImage": "./src/assets/icon.png",
 				"backgroundColor": "#ffffff"
-			}
+			},
+			"softwareKeyboardLayoutMode": "resize",
 		},
 		"web": {
 			"favicon": "./src/assets/favicon.png"
