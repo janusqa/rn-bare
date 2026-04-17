@@ -1,2 +1,31 @@
-.env
-.env*
+src/**/node_modules
+src/**/.expo
+src/**/dist
+src/**/npm-debug.*
+src/**/*.jks
+src/**/*.p8
+src/**/*.p12
+src/**/*.key
+src/**/*.mobileprovision
+src/**/*.orig.*
+src/**/web-build
+src/**/.env*
+src/**/.DS_Store
+src/**/.metro-health-check*
+src/**/expo-env.d.ts
+src/**/dist
+# client/**/google-services.json
+# client/**/GoogleService-info.plist
+
+.vscode
+docker
+documentation
+nginx
+server
+.dockerignore
+Dockerfile
+fly.toml
+README.md
+secrets.sh
+start.sh
+deprecated
