@@ -1,5 +1,13 @@
 node_modules
-yarn.lock
-package-lock.json
+android
+ios
+build
 dist
 coverage
+*.snap
+*.md
+*.json
+*.lock
+*.log
+.DS_Store
+eslint.config.mjs
